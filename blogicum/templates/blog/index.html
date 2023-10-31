@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block main %}
+    <main>
+      <div class="container py-5">
+        <h1>Лента записей</h1>                        
+        {% for notice in all_title %}
+        <hr>
+        <article>
+          <ul>
+            <li>
+              Место: {{ notice.location }}
+            </li>
+            <li>
+              Дата: {{ notice.date }}
+            </li>
+            <li>
+              Категория: <a href="{% url "blog:category_posts" notice.category %}">{{ notice.category }}</a>
+            </li>
+          </ul>          
+          <!-- Первые 10 слов -->
+          <p>
+            {{ notice.text|truncatewords:10 }}
+          </p>
+          <a href="{% url "blog:post_detail" notice.id %}">Читать полный текст</a>
+        </article>
+        {% endfor %}
+{% endblock main %}

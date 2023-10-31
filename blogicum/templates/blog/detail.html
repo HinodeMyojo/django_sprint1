@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+    <!-- Формируется из локации и даты -->
+  {% block title %}{{all_title.location, all_title.date}}{% endblock title %}
+  <body>	
+    {% block main %}   
+    <main>
+      <div class="container py-5">
+        <article>
+          <ul>
+            <li>
+              Место: {{all_title.location}}             
+            </li>
+            <li>
+              Дата: {{all_title.date}}
+            </li>
+            <li>
+              Категория: <a href="{% url "blog:category_posts" notice.category %}">{{ notice.category }}</a>
+            </li>
+          </ul>         
+          <p>
+            {{ all_title.text }}
+          </p>          
+        </article>                
+      </div>
+    </main>
+    {% endblock main %}
+  </body>
