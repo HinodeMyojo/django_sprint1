@@ -1,5 +1,4 @@
 {% load static %}
-{% with request.resolver_match.view_name as view_name %}
 <!DOCTYPE html> 
 <html lang="ru"> 
   <head>    
@@ -14,8 +13,9 @@
   </head>
   <body>
     {% include "includes/header.html" %}
+    <main>
     {% block main %}{% endblock main %}
+    </main>
     {% include "includes/footer.html" %}
   </body>
 </html>
-{% endwith %}
