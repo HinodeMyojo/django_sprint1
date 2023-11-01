@@ -1,19 +1,24 @@
+"""Page content display functions file."""
+
 from django.shortcuts import render
 
 
 def index(request):
+    """Returns file index.html with reversed dictionary."""
     template = 'blog/index.html'
     context = {'all_title': reversed(posts)}
     return render(request, template, context)
 
 
 def post_detail(request, id):
+    """Returns a specific page, according to the <id> query."""
     context = {'post': posts[id]}
     template = 'blog/detail.html'
     return render(request, template, context)
 
 
 def category_posts(request, category_slug):
+    """Returns a specific page, according to the <category> query."""
     context = {'category': category_slug}
     template = 'blog/category.html'
     return render(request, template, context)
