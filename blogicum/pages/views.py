@@ -13,4 +13,3 @@ def rules(request):
     """Returns the contents of 'rules.html' file."""
     templates = 'pages/rules.html'
     return render(request, templates)
-
