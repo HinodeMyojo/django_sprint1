@@ -1,14 +1,17 @@
 from django.shortcuts import render
 
+
 def index(request):
     template = 'blog/index.html'
-    context = {'all_title': posts}
+    context = {'all_title': reversed(posts)}
     return render(request, template, context)
 
+
 def post_detail(request, id):
-    context = {'all_title_detail': posts[id]}
+    context = {'post': posts[id]}
     template = 'blog/detail.html'
     return render(request, template, context)
+
 
 def category_posts(request, category_slug):
     context = {'category': category_slug}
@@ -57,4 +60,4 @@ posts = [
                 Весь этот день я хлопотал  около вещей: укрывал и
                 укутывал их, чтобы не испортились от дождя.''',
     },
-] 
+]

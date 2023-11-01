@@ -1,22 +1,22 @@
 {% extends "base.html" %}
     <!-- Формируется из локации и даты -->
-  {% block title %}{{all_title_detail.location}}{% endblock title %}	
+  {% block title %}{{post.location}}{% endblock title %}	
     {% block main %}   
       <div class="container py-5">
         <article>
           <ul>
             <li>
-              Место: {{ all_title_detail.location }}             
+              Место: {{ post.location }}             
             </li>
             <li>
-              Дата: {{ all_title_detail.date }}
+              Дата: {{ post.date }}
             </li>
             <li>
-              Категория: <a href="{% url "blog:category_posts" all_title_detail.category %}">{{ all_title_detail.category }}</a> 
+              Категория: <a href="{% url "blog:category_posts" post.category %}">{{ post.category }}</a> 
             </li>
           </ul>         
           <p>
-            {{ all_title_detail.text }}
+            {{ post.text }}
           </p>          
         </article>                
       </div>
