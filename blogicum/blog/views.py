@@ -2,28 +2,6 @@
 
 from django.shortcuts import render
 
-
-def index(request):
-    """Returns file index.html with reversed dictionary."""
-    template = 'blog/index.html'
-    context = {'all_title': reversed(posts)}
-    return render(request, template, context)
-
-
-def post_detail(request, id):
-    """Returns a specific page, according to the <id> query."""
-    context = {'post': posts[id]}
-    template = 'blog/detail.html'
-    return render(request, template, context)
-
-
-def category_posts(request, category_slug):
-    """Returns a specific page, according to the <category> query."""
-    context = {'category': category_slug}
-    template = 'blog/category.html'
-    return render(request, template, context)
-
-
 posts = [
     {
         'id': 0,
@@ -66,3 +44,21 @@ posts = [
                 укутывал их, чтобы не испортились от дождя.''',
     },
 ]
+
+
+def index(request):
+    """Returns file index.html with reversed dictionary."""
+    template = 'blog/index.html'
+    return render(request, template, context={'all_title': reversed(posts)})
+
+
+def post_detail(request, id):
+    """Returns a specific page, according to the <id> query."""
+    template = 'blog/detail.html'
+    return render(request, template, context={'post': posts[id]})
+
+
+def category_posts(request, category_slug):
+    """Returns a specific page, according to the <category> query."""
+    template = 'blog/category.html'
+    return render(request, template, context={'category': category_slug})
